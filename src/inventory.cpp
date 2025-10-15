@@ -9,6 +9,8 @@ inventory::inventory(){
     inv_slot_size.y = 16;
 }
 
+// Defines the inventory visually
+
 inventory::~inventory(){
 }
 
@@ -27,6 +29,8 @@ void inventory::Draw_Inventory(){
     }
 }
 
+//Continuously Draws the inventory, and checks to see if there should be an object in a given slot, and displays the inventory as such
+
 int inventory::get_slot(int index){
     return 0;
 }
@@ -39,6 +43,8 @@ void inventory::Update_slot(object& obj){
         }
     }
 }
+
+// Updates the slot by copying an object into it, only called when player destroys an object.
 
 void inventory::Update_selected_slot(){
     if (IsKeyPressed(KEY_ONE)){
@@ -57,3 +63,5 @@ void inventory::Update_selected_slot(){
         selected_slot = 5;
     }
 }
+
+// Selects the slot by checking which matching key is pressed, and will select the item in that slot.

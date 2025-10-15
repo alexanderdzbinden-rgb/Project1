@@ -1,6 +1,7 @@
 #include "player.hpp"
 #include "objects.hpp"
 #include "inventory.hpp"
+#include <vector>
 
 
 int main()
@@ -13,6 +14,8 @@ int main()
 	inventory inventory;
 	Rectangle obstacle = Rectangle{400, 500, 20, 20};
 	object block[20];
+	std::vector<object> bob;
+	bob.emplace_back();
 	bool isColliding = false;
 	bool isNear = false;
 	
@@ -38,6 +41,7 @@ int main()
 		}
         BeginDrawing();
         ClearBackground(bg);
+		bob[0].draw_obj();
 		for (int i=0; i < 20; i++){
 			block[i].draw_obj(); // draws all objects
 		}
@@ -49,3 +53,13 @@ int main()
    	CloseWindow();
    	return 0;
 }
+
+/*  TO DO  */
+
+/* Check when inventory is full, so when objects are broken they will sit on the screen instead of
+	going into the inventory or disappearing. 
+	
+	We can also start to work on placing objects out of the inventory based on the selected slot.
+	
+	Furthermore would like to store objects in vectors instead, as this will be less storage usage or ram usage.  
+*/
