@@ -42,9 +42,9 @@ int main()
         BeginDrawing();
         ClearBackground(bg);
 		bob[0].draw_obj();
-		for (int i=0; i < 20; i++){
+		/*for (int i=0; i < 20; i++){
 			block[i].draw_obj(); // draws all objects
-		}
+		}*/
 		player.Draw_player();
 		player.DrawHB(isNear);
 		inventory.Draw_Inventory();
