@@ -17,36 +17,36 @@ void player::Draw_player(){
 }
 
 void player::Update(){
-    if(IsKeyPressed(KEY_RIGHT)){
-			position.x += 20;
-			prev_position.x = position.x - 20;
+    if(IsKeyDown(KEY_RIGHT)){
+			position.x += 1;
+			prev_position.x = position.x - 1;
 			prev_position.y = position.y;
-			ray_pos.x = position.x + 20;
+			ray_pos.x = position.x + 1;
 			ray_pos.y = position.y;
 			orientation = 1;
 		}
-		else if(IsKeyPressed(KEY_LEFT)){
-			position.x -= 20;
-			prev_position.x = position.x + 20;
+		else if(IsKeyDown(KEY_LEFT)){
+			position.x -= 1;
+			prev_position.x = position.x + 1;
 			prev_position.y = position.y;
-			ray_pos.x = position.x - 20;
+			ray_pos.x = position.x - 1;
 			ray_pos.y = position.y;
 			orientation = 2;
 		}
-		else if(IsKeyPressed(KEY_UP)){
-			position.y -= 20;
-			prev_position.y = position.y + 20;
+		else if(IsKeyDown(KEY_UP)){
+			position.y -= 1;
+			prev_position.y = position.y + 1;
 			prev_position.x = position.x;
 			ray_pos.x = position.x;
-			ray_pos.y = position.y - 20;
+			ray_pos.y = position.y - 1;
 			orientation = 3;
 		}
-		else if(IsKeyPressed(KEY_DOWN)){
-			position.y += 20;
-			prev_position.y = position.y - 20;
+		else if(IsKeyDown(KEY_DOWN)){
+			position.y += 1;
+			prev_position.y = position.y - 1;
 			prev_position.x = position.x;
 			ray_pos.x = position.x;
-			ray_pos.y = position.y + 20;
+			ray_pos.y = position.y + 1;
 			orientation = 4;
 		}
 }
@@ -93,20 +93,20 @@ void player::Set_prev_pos(){
 	switch (orientation)
 	{
 	case 1:
-		ray_pos.x = position.x + 20;
+		ray_pos.x = position.x + 1;
 		ray_pos.y = position.y;
 		break;
 	case 2:
-		ray_pos.x = position.x - 20;
+		ray_pos.x = position.x - 1;
 		ray_pos.y = position.y;
 		break;
 	case 3:
 		ray_pos.x = position.x;
-		ray_pos.y = position.y - 20;
+		ray_pos.y = position.y - 1;
 		break;
 	case 4:
 		ray_pos.x = position.x;
-		ray_pos.y = position.y + 20;
+		ray_pos.y = position.y + 1;
 		break;
 	
 	default:
