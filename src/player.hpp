@@ -8,7 +8,8 @@ class player {
         ~player();
         void Draw_player();
         void Update();
-        bool UpdateKey(bool isnear, bool breakable);
+        bool UpdateKey(bool isnear, bool breakable, bool isfull);
+        bool PlaceObj(bool isNear, bool isfull);
         Rectangle getRect();
         Rectangle getNRect();
         void DrawHB(bool isColliding);

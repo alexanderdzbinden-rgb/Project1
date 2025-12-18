@@ -1,7 +1,6 @@
 #include "objects.hpp"
 #include "inventory.hpp"
 #include <cstdlib>
-#include <vector>
 
 object::object(){
     obj_pos.x = ((rand() % 20)*20 + 360);

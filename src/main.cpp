@@ -1,8 +1,6 @@
 #include "player.hpp"
 #include "objects.hpp"
 #include "inventory.hpp"
-#include <vector>
-
 
 int main()
 {	
@@ -14,21 +12,22 @@ int main()
 	inventory inventory;
 	Rectangle obstacle = Rectangle{400, 500, 20, 20};
 	object block[20];
-	std::vector<object> bob;
-	bob.emplace_back();
 	bool isColliding = false;
 	bool isNear = false;
 	
 	while (!WindowShouldClose()) {
 		player.Update(); // updates player position
 		inventory.Update_selected_slot(); // updates what slot is selected in the inventory
+		//if(player.PlaceObj(isNear,inventory.)){
+
+		//}
 
 		for (int j=0; j<20; j++){
 			isColliding = CheckCollisionRecs(player.getRect(), block[j].get_obj_rect()); // checks every object to see if colliding
 			isNear = CheckCollisionRecs(player.getNRect(), block[j].get_obj_rect()); // checks the single block raycast to see if it is colliding with a block
 			if (isNear == true){
 				player.DrawHB(isNear); // if raycast is in block check if we try to break the block
-				if (player.UpdateKey(isNear, block[j].isbreakable()) == true){
+				if (player.UpdateKey(isNear, block[j].isbreakable(), inventory.isfull) == true){
 					block[j].~object(); // destroys the object
 					inventory.Update_slot(block[j]); // if we break it, this puts it in our inventory
 				}
@@ -41,7 +40,6 @@ int main()
 		}
         BeginDrawing();
         ClearBackground(bg);
-		bob[0].draw_obj();
 		for (int i=0; i < 20; i++){
 			block[i].draw_obj(); // draws all objects
 		}

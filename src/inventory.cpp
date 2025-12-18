@@ -25,7 +25,11 @@ void inventory::Draw_Inventory(){
         }
         else if (slots[i]->ininventory() == true){
             slots[i]->draw_in_inv(slot_id[i], inv_slot_size);
+            individual[i] = true;
         }
+        if (selected_slot == i+1){
+                DrawRectangleLines(5+i*20, 365, 20, 20, RED);
+            }
     }
 }
 
@@ -41,10 +45,13 @@ void inventory::Update_slot(object& obj){
             slots[i] = &obj;
             break;
         }
+        else if(i==3){
+            isfull = true;
+        }
     }
 }
 
-// Updates the slot by copying an object into it, only called when player destroys an object.
+// Updates the slot by copying an object into it, only called when player destroys an object. If no slot available, set inventory to full.
 
 void inventory::Update_selected_slot(){
     if (IsKeyPressed(KEY_ONE)){

@@ -51,13 +51,27 @@ void player::Update(){
 		}
 }
 
-bool player::UpdateKey(bool isnear, bool breakable){
+bool player::UpdateKey(bool isnear, bool breakable, bool isfull){
 	if (IsKeyPressed(KEY_R) && isnear == true && breakable == true){
-		return true;
+		if(isfull == true){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 	else{
 		return false;
 	}
+}
+
+bool player::PlaceObj(bool isNear, bool isfull){
+	if(IsKeyPressed(KEY_T) && isNear == false && isfull == true){
+		return true;
+		//need to access inventory here and delete the object from selected slot, and also add it to the object list.
+		//Should use vectors for the objects now so we can append, and keep track of that length to iterate accordingly each instance.
+	}
+    return false;
 }
 
 Rectangle player::getRect(){
